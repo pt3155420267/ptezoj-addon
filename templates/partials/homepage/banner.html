@@ -8,11 +8,17 @@
   <div class="section__body">
     <div class="swiper">
       <div class="swiper-wrapper">
-        {% if payload.urls %}
-          {% for banner in payload.urls %}
-            <div class="swiper-slide">
-              <img src="{{banner.url}}" style="width: 100%;" />
-            </div>
+        {% if payload.pics %}
+          {% for banner in payload.pics %}
+            {% if banner.url %}
+              <div class="swiper-slide">
+                <a href="{{banner.url}}"><img src="{{banner.pic}}" style="width: 100%"></a>
+              </div>
+            {% else %}
+              <div class="swiper-slide">
+                <img src="{{banner.pic}}" style="width: 100%">
+              </div>
+            {% endif %}
           {% endfor %}
         {% endif %}
       </div>

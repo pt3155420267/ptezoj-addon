@@ -27,14 +27,17 @@ HomeHandler.prototype.getCountdown = async (domainId, payload) => {
 
 async function getBanner(payload) {
     var content = new Array();
-	var urls = new Array(payload.urls);
-	urls = urls[0];
-	urls.forEach(function(val, ind) {
+	var pics = new Array(payload.pics);
+	var delaytime = payload.delay;
+	pics = pics[0];
+	pics.forEach(function(val, ind) {
 		content.push({
-			url: val.url,
+			pic: val.pic,
+			url: val.url
 		})
 	});
-	payload.urls = content;
+	payload.pics = content;
+	payload.delaytime = delaytime
     return payload;
 }
 
